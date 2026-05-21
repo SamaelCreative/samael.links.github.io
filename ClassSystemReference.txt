@@ -1,0 +1,251 @@
+1. Layout & Display
+
+Grid Systems:
+.s-row, .s-column (Basic flow)
+.s-columns-2 to .s-columns-8 (Fixed columns)
+.s-columns-min-5 to .s-columns-min-70 (Auto-fit responsive columns)
+.s-col-span-2 to .s-col-span-8 (Spanning columns)
+.s-col-start-1 to .s-col-start-8 (Starting position)
+.s-row-span-2 to .s-row-span-8 (Row spanning)
+.s-row-start-1 to .s-row-start-8 (Row starting position)
+
+Flexbox:
+.s-flex-row
+.s-flex-column
+.s-flex-1, .s-flex-2, .s-flex-3 (Flex grow)
+.s-flex-wrap
+.s-flex-nowrap
+
+Alignment (Grid & Flex):
+
+Items:
+.s-items-left
+.s-items-center
+.s-items-right
+.s-items-top
+.s-items-middle
+.s-items-bottom
+.s-items-stretch
+
+Content:
+.s-content-left
+.s-content-center
+.s-content-right
+.s-content-top
+.s-content-middle
+.s-content-bottom
+.s-content-stretch
+
+Spacing:
+.s-space-between
+.s-space-around
+
+Self Alignment:
+.s-self-left
+.s-self-center
+.s-self-right
+.s-self-top
+.s-self-middle
+.s-self-bottom
+.s-self-stretch
+
+Dimensions:
+
+Width:
+.s-full-width
+.s-screen-width
+.s-auto-width
+.s-width-90 to .s-width-10
+
+Max Width:
+.s-max-site-width
+.s-max-width-140 to .s-max-width-10
+
+Height:
+.s-full-height
+.s-screen-height
+.s-auto-height
+
+Min Height:
+.s-min-height-100 to .s-min-height-10 (using vh)
+
+Aspect Ratio:
+.s-aspect-1
+.s-aspect-4-3
+.s-aspect-16-9, etc.
+
+Positioning:
+.s-relative
+.s-absolute
+.s-sticky
+.s-fixed
+
+Inset:
+.s-inset-0
+.s-top-0
+.s-bottom-0
+.s-left-0
+.s-right-0
+
+Z-Index:
+.s-z--1 to .s-z-10000
+
+Visibility:
+.s-visible
+.s-hidden
+.s-display-none
+
+2. Spacing (Margin, Padding, Gap)
+Scale: 4xs, 3xs, 2xs, xs, s, m, l, xl, 2xl, 3xl, 4xl
+
+Padding:
+.s-padding-{scale} (All sides)
+.s-padding-top-{scale}
+.s-padding-bottom-{scale}, etc.
+.s-padding-horizontal-{scale}
+.s-padding-vertical-{scale}
+
+Margin:
+.s-margin-{scale} (All sides)
+.s-margin-top-{scale}
+.s-margin-bottom-{scale}, etc.
+.s-margin-horizontal-{scale}
+.s-margin-vertical-{scale}
+
+Gap:
+.s-gap-{scale} (For Grid/Flex gaps)
+
+3. Typography
+
+Headings: H1 to H6 (Note: These are element selectors in the file, not classes, but styled globally).
+Font Size Classes:
+.s-text-xs to .s-text-7xl
+Font Weight:
+.s-font-100 to .s-font-900, .s-bold
+Line Height:
+.s-line-height-xs to .s-line-height-xl
+Text Transform:
+.s-lowercase
+.s-uppercase
+.s-italic
+Decoration:
+.s-underline
+Alignment:
+.s-text-left
+.s-text-center
+.s-text-right
+Whitespace:
+.s-white-space-nowrap
+
+4. Colours & Backgrounds
+
+Primary Palette:
+.s-bg-primary (+ -5 to -90, -d-1 to -d-4, -l-1 to -l-4)
+.s-text-primary (+ variants)
+.s-border-primary (+ variants)
+Secondary Palette:
+.s-bg-secondary (+ variants)
+.s-text-secondary (+ variants)
+.s-border-secondary (+ variants)
+Tertiary Palette:
+.s-bg-tertiary (+ variants)
+.s-text-tertiary (+ variants)
+.s-border-tertiary (+ variants)
+Dark/Light Theme:
+.s-bg-dark
+.s-bg-light
+.s-text-dark
+.s-text-light
+.s-border-dark
+.s-border-light
+Variants: -5 to -90 for opacity levels.
+Status Colours:
+Success:
+.s-bg-success
+.s-text-success
+.s-border-success
+Error:
+.s-bg-error
+.s-text-error
+.s-border-error
+Special Effects:
+.s-glass (Backdrop blur)
+.s-grayscale
+.s-opacity-0 to .s-opacity-100
+
+5. Components
+
+Buttons:
+.s-btn (with modifiers: .small, .large, .tertiary, .ghost, .light, .secondary, .no-bg, .dark)
+Badges:
+.s-badge (with modifiers: .secondary)
+Cards:
+.s-card (with modifiers: .secondary, .primary)
+Inputs:
+.s-input
+.s-select
+Links:
+.s-link (with modifiers: .secondary, .tertiary)
+Icons:
+.s-icon (with modifiers: .large, .secondary, .tertiary, .outline, .filled, .small)
+Avatars:
+.s-avatar (with modifiers: .small, .large)
+Dividers:
+.s-divider (with modifier: .vertical)
+Form Controls:
+.s-checkbox
+.s-radio
+
+6. Borders & Shadows
+
+Borders:
+.s-border
+.s-border-left
+.s-border-right
+.s-border-top
+.s-border-bottom
+Radius:
+.s-radius-xs
+.s-radius-s
+.s-radius-m
+.s-radius-l
+.s-radius-xl
+.s-radius-full
+Shadows:
+.s-shadow-xs
+.s-shadow-s
+.s-shadow-m
+.s-shadow-l
+.s-shadow-xl
+
+7. Utilities & Transforms
+Cursor:
+.s-pointer
+.s-not-allowed
+.s-cursor-auto
+.s-no-pointer-events
+Overflow:
+.s-overflow-hidden
+.s-overflow-auto
+.s-overflow-x-hidden
+.s-overflow-y-auto
+Transforms:
+.s-rotate-90
+.s-rotate-180
+Object Fit:
+.s-fit-contain
+.s-fit-cover
+.s-fit-fill
+Blur:
+.s-bg-blur-xs to .s-bg-blur-xl
+Transition:
+.s-transition-global
+List:
+.s-list-none
+
+8. Responsive Modifiers
+
+The framework includes media query modifiers for specific breakpoints (XL, L, M, S). These are appended to existing classes:
+
+Breakpoints: --on-xl (max 1400px), --on-l (max 992px), --on-m (max 768px), --on-s (max 480px).
+Usage Example: .s-columns-2--on-m (Switches to 2 columns only on medium screens and below)
