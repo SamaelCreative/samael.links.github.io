@@ -3013,13 +3013,12 @@ body {
   background-color: #000000; /* Solid color only, NO image here */
   font-family: 'Roboto Mono', monospace;
   color: var(--sa-text-body);
-  min-height: 100vh;
   display: block;
 }
 
 .main-content {
   width: 100%;
-  height: auto;
+  min-height: 80vh;
   padding-top: 70px;
   padding-left: 35px;
   padding-right: 35px;
@@ -3055,11 +3054,13 @@ body {
   text-decoration: none;
 }
 
-/* Main Content Container */
+/* --- MAIN CONTENT CONTAINER --- */
 .main-content {
   width: 100%;
   height: auto;
-  padding-top: 70px; /* Space for the fixed header */
+  padding-top: 70px;
+  padding-left: 35px;
+  padding-right: 35px;
   padding-bottom: var(--sa-space-l);
   
   display: flex;
@@ -3067,10 +3068,45 @@ body {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  background-color: var(--sa-bg-dark); /* Fallback color */
-  background-size: cover; 
-  background-position: bottom center; 
-  background-repeat: no-repeat; 
+
+  /* --- BACKGROUND IMAGE SETTINGS --- */
+  background-image: url('src/Background.jpg');
+  background-position: bottom center; /* Anchor to bottom */
+  background-repeat: no-repeat;       /* CRITICAL: Prevents tiling */
+  background-size: 100% auto;         /* 100% width, natural height */
+  background-color: #000000;          /* Fallback black */
+  
+  position: relative; 
+  overflow: hidden; /* Ensures nothing spills out */
+}
+
+/* --- THE 80% BLACK OVERLAY --- */
+.main-content::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* 50% Pure Black Overlay */
+  background-color: rgba(0, 0, 0, 0.8);
+  
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* --- CONTENT Z-INDEX --- */
+.main-content > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- CONTENT Z-INDEX --- */
+/* Ensure your text and buttons sit ABOVE the overlay */
+.main-content > * {
+  position: relative;
+  z-index: 2;
 }
 
 /* Footer Container */
@@ -3245,4 +3281,68 @@ p {
   max-width: 100%;
   text-align: center;
   margin-bottom: var(--sa-space-m);
+}
+
+/* --- MAGAZINE LOGO GRID --- */
+.features-section {
+  width: 90%;
+  max-width: 1200px; /* Limits width on large screens for readability */
+  margin: 0 auto;
+  padding: var(--sa-space-3xl) 0;
+}
+
+.logo-grid {
+  display: grid;
+  /* Auto-fit creates as many columns as fit. Min-width of 140px ensures logos aren't too tiny. */
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--sa-space-l);
+  align-items: center; /* Vertically centers logos if heights differ */
+  justify-items: center; /* Horizontally centers logos in their cells */
+}
+
+.logo-item {
+  width: 100%;
+  height: 100px; /* Fixed height for uniformity, or remove for natural height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sa-space-s);
+  border-radius: var(--sa-radius-m);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+/* Hover Effect: Subtle lift and glow */
+.logo-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sa-shadow-m);
+  background: var(--sa-bg-primary-10); /* Slight tint of primary color on hover */
+}
+
+.logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Ensures logo isn't stretched */
+  filter: grayscale(100%); /* Makes all logos monochrome initially */
+  opacity: 0.8;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover Effect: Restore colour */
+.logo-item:hover .logo-img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .logo-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Smaller min-width for mobile */
+    gap: var(--sa-space-m);
+  }
+  
+  .logo-item {
+    height: 80px;
+    padding: var(--sa-space-xs);
+  }
 }
