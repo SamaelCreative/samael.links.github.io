@@ -8,6 +8,125 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css"/>
     <title>Contact</title>
+
+        <!-- CONTAINER: Slideshow Styles -->
+    <style>
+        /* Slideshow Container */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 600px; 
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: var(--sa-radius-l);
+            background-color: transparent; 
+            margin-bottom: var(--sa-space-3xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Individual Slide */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0; 
+            transition: opacity 1.5s ease-in-out; 
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent; 
+        }
+
+        /* Image Styling */
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        /* Navigation Dots */
+        .dots-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: var(--sa-primary);
+        }
+
+        .portfolio-content {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding-bottom: var(--sa-space-3xl);
+        }
+
+        .portfolio-content .s-btn {
+            display: inline-flex !important; 
+            width: auto !important;
+            min-width: 180px;
+        }
+        
+        h1 {
+            margin-bottom: var(--sa-space-l);
+        }
+        
+        p.intro {
+            max-width: 800px;
+            margin: 0 auto var(--sa-space-2xl);
+            text-align: center;
+        }
+
+        /* Override input background to dark */
+        .s-input {
+    background-color: var(--sa-bg-dark) !important;
+    color: var(--sa-text-body) !important; /* Ensures text is visible */
+    border: 1px solid var(--sa-border-primary) !important; /* Keeps the border visible */
+}
+
+/* Placeholder color adjustment for dark background */
+.s-input::placeholder {
+    color: rgba(221, 221, 221, 0.5) !important; /* Light grey placeholder */
+}
+
+/* Focus state */
+.s-input:focus {
+    background-color: var(--sa-bg-dark) !important;
+    border-color: var(--sa-primary) !important;
+    color: var(--sa-text-body) !important;
+}
+    </style>    
+
+    
 </head>
 <body>
      <!-- ========================================== -->
@@ -81,6 +200,87 @@
         <a href="https://wa.me/358451733585" class="s-btn s-uppercase">WhatsApp</a>
                 <h2 class="s-text-xl s-text-secondary s-uppercase max-width:100% width:750px">Booking Info</h2>
         <p class="s-text-primary s-text-xs s-margin-bottom-l s-text-center">Sessions are booked on a first-confirmed basis. A non-refundable deposit secures your date, with the balance due on the day of the shoot. Full booking terms are available on the terms page.</p>
+                <!-- ========================================== -->
+        <!-- CONTACT FORM (Not functional) -->
+        <!-- ========================================== -->
+        <div class="portfolio-content s-text-center s-margin-top-2xl">
+            <h2 class="s-text-xl s-text-primary s-uppercase">Contact Me</h2>
+            <p class="s-text-m s-text-body s-margin-top-m">
+                Please fill out the form below. This will open your default email client with your message pre-filled.
+            </p>
+
+            <!-- The Form Container: Centered via max-width and margin -->
+            <form id="schoolProjectForm" class="s-margin-top-l" style="max-width: 500px; margin: 20px auto 0 auto; text-align: left;">
+                
+                <!-- Name Field -->
+                <label class="s-text-m s-text-body s-display-block s-margin-bottom-s">Full Name</label>
+                <input type="text" id="inpName" class="s-input s-full-width s-margin-bottom-m" placeholder="Your Name" required>
+
+                <!-- Email Field -->
+                <label class="s-text-m s-text-body s-display-block s-margin-bottom-s">Email Address</label>
+                <input type="email" id="inpEmail" class="s-input s-full-width s-margin-bottom-m" placeholder="you@example.com" required>
+
+                <!-- Phone Field -->
+                <label class="s-text-m s-text-body s-display-block s-margin-bottom-s">Phone Number (Optional)</label>
+                <input type="tel" id="inpPhone" class="s-input s-full-width s-margin-bottom-m" placeholder="+358 ...">
+
+                <!-- Message Field -->
+                <label class="s-text-m s-text-body s-display-block s-margin-bottom-s">Message</label>
+                <textarea id="inpMessage" class="s-input s-full-width s-margin-bottom-m" rows="5" placeholder="Write your message here..." required></textarea>
+
+                <!-- Submit Button -->
+                <button type="submit" class="s-btn s-uppercase s-full-width s-margin-top-m">Send Message</button>
+            </form>
+
+            <!-- Thank You Message (Hidden by default) -->
+            <div id="thankYouSection" class="s-text-center s-margin-top-2xl" style="display: none; max-width: 500px; margin: 0 auto;">
+                <h3 class="s-text-xl s-text-success s-uppercase">Thank You!</h3>
+                <p class="s-text-m s-text-body s-margin-top-m">
+                    Your email client has been opened. Please click <strong>Send</strong> in your email application to deliver the message.
+                </p>
+                <button onclick="resetSchoolForm()" class="s-btn s-ghost s-uppercase s-margin-top-m">Send Another Message</button>
+            </div>
+        </div>
+
+        <!-- JavaScript Logic for the Form -->
+        <script>
+            document.getElementById('schoolProjectForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent page reload
+
+                // 1. Get values from inputs
+                const name = document.getElementById('inpName').value;
+                const email = document.getElementById('inpEmail').value;
+                const phone = document.getElementById('inpPhone').value;
+                const message = document.getElementById('inpMessage').value;
+
+                // 2. SET YOUR EMAIL ADDRESS HERE
+                const myEmail = "contact@samaelcreative.com"; 
+
+                // 3. Construct the mailto link
+                const subject = encodeURIComponent("Portfolio Inquiry from " + name);
+                let bodyText = "Name: " + name + "\n";
+                bodyText += "Email: " + email + "\n";
+                if(phone) bodyText += "Phone: " + phone + "\n";
+                bodyText += "\nMessage:\n" + message;
+                
+                const body = encodeURIComponent(bodyText);
+                const mailtoLink = `mailto:${myEmail}?subject=${subject}&body=${body}`;
+
+                // 4. Open the email client
+                window.location.href = mailtoLink;
+
+                // 5. Show Thank You message and hide form
+                document.getElementById('schoolProjectForm').style.display = 'none';
+                document.getElementById('thankYouSection').style.display = 'block';
+            });
+
+            // Function to reset the form for testing/demo purposes
+            function resetSchoolForm() {
+                document.getElementById('schoolProjectForm').reset();
+                document.getElementById('schoolProjectForm').style.display = 'block';
+                document.getElementById('thankYouSection').style.display = 'none';
+            }
+        </script>
 
     </div>   
 
